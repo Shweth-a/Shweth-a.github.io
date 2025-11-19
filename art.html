@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Art — Shwetha</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .hero{max-width:900px;margin:1.25rem auto;padding:0 1rem}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <h1>Shwetha</h1>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="art.html" aria-current="page">Art</a>
+    </nav>
+  </header>
+
+  <main class="hero">
+    <h2>Art</h2>
+    <p>Here are some pieces — replace these placeholders with your own images by putting them in the `images/` folder and updating the `src` attributes.</p>
+
+    <section class="gallery">
+      <article class="art-card">
+        <img src="images/art1.svg" alt="Art 1">
+        <p>Art 1</p>
+      </article>
+      <article class="art-card">
+        <img src="images/art2.svg" alt="Art 2">
+        <p>Art 2</p>
+      </article>
+      <article class="art-card">
+        <img src="images/art3.svg" alt="Art 3">
+        <p>Art 3</p>
+      </article>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Shwetha</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

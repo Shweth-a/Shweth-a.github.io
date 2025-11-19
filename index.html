@@ -2,10 +2,35 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>My Personal Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shwetha — Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to my website!</h1>
-    <p>This is Shwetha</p>
+    <header class="site-header">
+        <h1>Shwetha</h1>
+        <nav class="main-nav">
+            <a href="index.html" aria-current="page">Home</a>
+            <a href="art.html">Art</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="intro">
+            <img src="images/profile.svg" alt="Profile picture of Shwetha" class="profile-photo">
+            <div class="intro-text">
+                <h2>Hi — I'm Shwetha</h2>
+                <p>I'm a creator who loves art, design, and building small web projects. Welcome to my personal site — take a look at my work on the Art page.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>© <span id="year"></span> Shwetha</p>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>

@@ -1,0 +1,40 @@
+:root{
+  --teal: #008080;
+  --card-bg: rgba(255,255,255,0.06);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:var(--teal);
+  color: #ffffff;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+.site-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:1rem 1.25rem;
+}
+.site-header h1{margin:0;font-size:1.25rem}
+.main-nav a{color:rgba(255,255,255,0.95);text-decoration:none;margin-left:1rem}
+.main-nav a[aria-current="page"]{font-weight:700}
+.container{max-width:900px;margin:2.5rem auto;padding:0 1rem}
+.intro{display:flex;gap:1.25rem;align-items:center;background:var(--card-bg);padding:1.25rem;border-radius:12px}
+.profile-photo{width:140px;height:140px;border-radius:50%;object-fit:cover;border:4px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04)}
+.intro-text h2{margin:0 0 0.5rem 0}
+.intro-text p{margin:0;color:rgba(255,255,255,0.95)}
+.site-footer{padding:1rem;text-align:center;opacity:0.9}
+
+/* Art gallery */
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin-top:1rem}
+.art-card{background:var(--card-bg);padding:0.5rem;border-radius:8px;display:flex;flex-direction:column;align-items:center}
+.art-card img{width:100%;height:160px;object-fit:cover;border-radius:6px}
+.art-card p{margin:0.5rem 0 0 0;font-size:0.95rem}
+
+@media (max-width:560px){
+  .intro{flex-direction:column;text-align:center}
+  .profile-photo{width:120px;height:120px}
+}
