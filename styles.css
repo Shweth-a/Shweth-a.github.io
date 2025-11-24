@@ -1,40 +1,103 @@
 :root{
-  --teal: #008080;
-  --card-bg: rgba(255,255,255,0.06);
+  --bg: #CEEDF2; 
+  --white: #ffffff;
+  --text: #2B2B2B; 
+  --card-bg: #9EB2E6; 
 }
 *{box-sizing:border-box}
 html,body{height:100%}
-body{
+.body, body{
   margin:0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background:var(--teal);
-  color: #ffffff;
+  background:var(--bg);
+  color:var(--text);
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
 }
 .site-header{
+  position:sticky;
+  top:0;
+  z-index:40;
   display:flex;
-  justify-content:space-between;
+  justify-content:flex-end;
   align-items:center;
-  padding:1rem 1.25rem;
+  gap:1rem;
+  padding:0.75rem 1rem;
+  background:transparent;
 }
-.site-header h1{margin:0;font-size:1.25rem}
-.main-nav a{color:rgba(255,255,255,0.95);text-decoration:none;margin-left:1rem}
-.main-nav a[aria-current="page"]{font-weight:700}
+.site-header h1{margin:0;font-size:1rem}
+.main-nav a{
+  color:var(--text);
+  text-decoration:none;
+  margin-left:0.6rem;
+  padding:0.45rem 0.85rem;
+  border-radius:999px;
+  background:var(--card-bg);
+  box-shadow:0 1px 4px rgba(8,48,58,0.06);
+}
+.main-nav a[aria-current="page"]{
+  font-weight:700;
+  background: var(--card-bg);
+  color: var(--text);
+  box-shadow:0 4px 12px rgba(0,0,0,0.06);
+}
 .container{max-width:900px;margin:2.5rem auto;padding:0 1rem}
-.intro{display:flex;gap:1.25rem;align-items:center;background:var(--card-bg);padding:1.25rem;border-radius:12px}
-.profile-photo{width:140px;height:140px;border-radius:50%;object-fit:cover;border:4px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04)}
+.hero{
+  max-width:900px;
+  margin:3.5rem auto 1.5rem auto;
+  padding:2rem 1rem;
+  border-radius:14px;
+  background: var(--card-bg);
+  box-shadow:0 6px 18px rgba(8,48,58,0.05);
+  text-align:center;
+}
+.section-box,
+#about, #research, #projects{
+  max-width:900px;
+  margin:1.5rem auto;
+  padding:1.5rem 1.25rem;
+  border-radius:12px;
+  background:var(--card-bg);
+  color:var(--text);
+  box-shadow:0 8px 20px rgba(0,0,0,0.04);
+}
+.section-box h2, #about h2, #research h2, #projects h2{
+  margin-top:0;
+  color:var(--text);
+  text-align:center;
+}
+.section-box p, #about p, #research p, #projects p{
+  color:var(--text);
+  line-height:1.6;
+}
+.button-container{margin-top:1rem}
+.button-container a{
+  display:inline-block;
+  margin:0.35rem;
+  padding:0.5rem 0.9rem;
+  border-radius:8px;
+  background:var(--bg);
+  color:var(--text);
+  text-decoration:none;
+  box-shadow:0 6px 14px rgba(0,0,0,0.045);
+}
+.profile-photo{width:140px;height:140px;border-radius:50%;object-fit:cover;border:3px solid rgba(8,48,58,0.06);background:var(--muted)}
 .intro-text h2{margin:0 0 0.5rem 0}
-.intro-text p{margin:0;color:rgba(255,255,255,0.95)}
-.site-footer{padding:1rem;text-align:center;opacity:0.9}
+.intro-text p{margin:0;color:var(--text)}
+.site-footer{padding:1rem;text-align:center;opacity:0.9;color:rgba(8,48,58,0.7)}
 
 /* Art gallery */
 .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin-top:1rem}
 .art-card{background:var(--card-bg);padding:0.5rem;border-radius:8px;display:flex;flex-direction:column;align-items:center}
 .art-card img{width:100%;height:160px;object-fit:cover;border-radius:6px}
-.art-card p{margin:0.5rem 0 0 0;font-size:0.95rem}
+.art-card p{margin:0.5rem 0 0 0;font-size:0.95rem;color:var(--text)}
 
 @media (max-width:560px){
   .intro{flex-direction:column;text-align:center}
   .profile-photo{width:120px;height:120px}
+  .site-header{justify-content:flex-end;padding:0.5rem}
 }
+
+/* Utility */
+.sr-only{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+
