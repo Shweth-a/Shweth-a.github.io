@@ -11,6 +11,7 @@
         <h1 class="sr-only">Shwetha Prakash</h1>
         <nav class="main-nav">
             <a href="index.html" aria-current="page">Home</a>
+            <a href="research.html">Research</a>
             <a href="art.html">Art</a>
         </nav>
     </header>
@@ -18,7 +19,8 @@
         <img src="images/profile.png" alt="Your Photo" class="profile-photo" />
         <h1>Shwetha Prakash</h1>
         <p>Physics PhD student at Cornell University. </p>
-        <p>I work in experimental cosmology - I do instrumentation, data analysis and software for instruments that go on telescopes. </p>
+        <p>I work in experimental cosmology - I build the tools that let telescopes study the early universe. <br>
+        I work on the hardware, software, and data analysis systems behind experiments like TIME and CCAT. </p>
         <div class="button-container">
             <a href="cv.pdf">CV</a>
             <a href="#projects">Projects</a>
@@ -28,31 +30,34 @@
 
     <section id="about">
         <h2>About Me</h2>
-        <p>I am a second-year PhD student in Physics at Cornell University. My work is in experimental cosmology with experience in instrumentation and data processing for the TIME experiment and ongoing work on KID simulations for CCAT. I love being outdoors - the sun and water change my brain chemistry. When I'm feeling creative, I like painting, crocheting and working on building things. I enjoy exploring new hobbies; I've gotten into climbing, knitting and building computers in the past few months. </p>
-    </section>
+        <p> I am a second-year PhD student in Physics at Cornell University, working in experimental cosmology. I work on instrumentation, software development, and data analysis for the TIME and CCAT experiments, focusing on superconducting TES and microwave KID detector systems. Outside of research, I enjoy spending time outdoors—being in the sun or near water always lifts my mood. I also love creative projects like painting, crocheting, and building things, and I’m always exploring new hobbies; recently I’ve gotten into climbing, knitting, and building computers. </p>
+        </section>
 
-    <section id="research">
+    <section id="research" class="section-box">
         <h2>Research</h2>
-        <div class="project">
-            <h3>TIME Data Pipeline</h3>
-            <p>Worked on calibration and processing of TIME’s observational data, including timestream handling, instrument response characterization, and quality checks.</p>
-        </div>
-        <div class="project">
-            <h3>KID Simulations</h3>
-            <p>Current project involving detector simulations for kinetic inductance detectors (KIDs). Focus on modeling noise, resonator behavior, and performance evaluation.</p>
-        </div>
-    </section>
+                <div class="research-grid">
+                    <div class="research-row">
+                        <div class="research-media delta5 small">
+                            <img src="images/research_pp.jpg" alt="TIME instrument" />
+                        </div>
+                        <div class="research-body">
+                            <h3>TIME</h3>
+                            <p>I work with Dr. Abigail Crites on the TIME (Tomographic Ionized-carbon Mapping Experiment) project, a telescope instrument designed to make 3D maps of star-forming galaxies in the early universe. TIME measures faint millimeter-wave light—specifically the [CII] line to study how galaxies evolved over cosmic time. My work involves building and testing parts of the instrument, helping integrate it onto the telescope at Kitt Peak, and developing the software and analysis pipeline that will process the data once observations begin.</p>
+                        </div>
+                    </div>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project">
-            <h3>Computational Astronomy Tools</h3>
-            <p>Python-based astronomy and physics tools developed for analysis, visualization, and simulation tasks.</p>
-        </div>
-        <div class="project">
-            <h3>Creative Work</h3>
-            <p>A collection of my painting, knitting, and furniture restoration projects—integrating creativity with technical problem-solving.</p>
-        </div>
+                    <div class="research-row reverse">
+                        <div class="research-body">
+                            <h3>CCAT</h3>
+                            <p>I also work with Dr. Mike Niemack on CCAT, a next-generation submillimeter telescope being built to study cosmic structure, star formation, and the physics of the early universe. CCAT uses large arrays of sensitive detectors to collect enormous amounts of data, and I develop software that supports its data acquisition system so that the instrument can reliably read out, organize, and store detector information during observations.</p>
+                        </div>
+                        <div class="research-media medium">
+                            <img src="images/research_pp2.jpg" alt="CCAT instrument" />
+                        </div>
+                    </div>
+                </div>
+        
+        <p style="margin-top:0.75rem"><a href="research.html">→ Open full research page</a></p>
     </section>
 
     <section id="contact">

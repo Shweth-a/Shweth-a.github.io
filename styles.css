@@ -1,8 +1,11 @@
 :root{
-  --bg: #CEEDF2; 
+  --bg: #b9e5e5; 
   --white: #ffffff;
   --text: #2B2B2B; 
-  --card-bg: #9EB2E6; 
+  --card-bg: #9eafda; 
+  /* Research image size defaults (can be overridden per-entry) */
+  --research-img-max-width: 360px;
+  --research-img-max-height: 320px;
 }
 *{box-sizing:border-box}
 html,body{height:100%}
@@ -51,6 +54,16 @@ html,body{height:100%}
   box-shadow:0 6px 18px rgba(8,48,58,0.05);
   text-align:center;
 }
+
+/* Add extra space under the hero heading and more bottom padding for the intro box */
+.hero h2{margin-bottom:1.5rem}
+
+/* page-specific: add space above the Art page heading only */
+.art-page .hero{
+  padding-top:1rem;
+  padding-bottom:1rem;
+}
+.art-page .hero h2{padding-top:0;margin:1rem 0}
 .section-box,
 #about, #research, #projects{
   max-width:900px;
@@ -91,6 +104,56 @@ html,body{height:100%}
 .art-card{background:var(--card-bg);padding:0.5rem;border-radius:8px;display:flex;flex-direction:column;align-items:center}
 .art-card img{width:100%;height:160px;object-fit:cover;border-radius:6px}
 .art-card p{margin:0.5rem 0 0 0;font-size:0.95rem;color:var(--text)}
+
+/* Framed gallery styles */
+.art-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin-top:1rem;align-items:start}
+.art-frame{background:#b9e5e5;border-radius:10px;padding:0.6rem;display:flex;flex-direction:column;align-items:center;box-shadow:0 8px 18px rgba(0,0,0,0.04);}
+.art-frame img{width:100%;height:220px;object-fit:cover;border-radius:6px;border:6px solid var(--card-bg);background:var(--white)}
+.art-meta{margin-top:0.6rem;font-size:0.85rem;color:var(--text);opacity:0.75}
+
+/* separate the art intro box from the main heading */
+/* .art-intro removed: intro box deleted from art page */
+
+/* Lightbox / zoom styles */
+.lightbox{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.8);z-index:1200;padding:2rem}
+.lightbox.open{display:flex}
+.lightbox-img{max-width:92%;max-height:92vh;border-radius:8px;box-shadow:0 18px 40px rgba(0,0,0,0.6)}
+.lightbox-caption{color:var(--white);margin-top:0.75rem;text-align:center;opacity:0.95}
+.lightbox-close{position:absolute;right:1rem;top:1rem;background:transparent;border:none;color:var(--white);font-size:2.2rem;line-height:1;cursor:pointer}
+.lightbox-close:focus{outline:2px solid var(--white);outline-offset:4px}
+
+/* prevent background scroll when lightbox open */
+body.lightbox-open{overflow:hidden}
+
+/* Research section: image left, text right inside boxed section */
+.research-content{display:flex;gap:1rem;align-items:flex-start}
+.research-grid{display:flex;flex-direction:column;gap:1rem}
+.research-row{display:grid;gap:1rem;align-items:center;grid-auto-flow:dense}
+/* Non-reverse rows: media on the left (fixed max width), text on the right (flexible)
+  Reverse rows: text on the left (flexible), media on the right (fixed max width) */
+.research-row:not(.reverse){grid-template-columns: minmax(0, var(--research-img-max-width)) 1fr}
+.research-row.reverse{grid-template-columns: 1fr minmax(0, var(--research-img-max-width))}
+.research-row.reverse > .research-media{grid-column:2}
+.research-row.reverse > .research-body{grid-column:1}
+.research-row > .research-body,
+.research-row > .research-media{min-width:0}
+.research-media{display:flex;align-items:center;justify-content:center}
+.research-media img{display:block;width:100%;max-width:var(--research-img-max-width);max-height:var(--research-img-max-height);height:auto;object-fit:cover;border-radius:8px;flex:0 0 auto;border:6px solid var(--card-bg);background:var(--white)}
+.research-media.small img{max-width:260px}
+.research-media.medium img{max-width:360px}
+.research-media.large img{max-width:520px}
+/* Per-entry tweak: make an image exactly 5mm smaller in both dimensions */
+.research-media.delta5 img{
+  max-width: calc(var(--research-img-max-width) - 5mm);
+  max-height: calc(var(--research-img-max-height) - 5mm);
+}
+.research-body{padding:0.25rem 0}
+
+@media (max-width:680px){
+  .research-content{flex-direction:column}
+  .research-row{grid-template-columns:1fr;}
+  .research-media img{height:auto;border-width:4px;max-width:100%}
+}
 
 @media (max-width:560px){
   .intro{flex-direction:column;text-align:center}
