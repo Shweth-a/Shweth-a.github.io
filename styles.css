@@ -150,15 +150,32 @@ body.lightbox-open{overflow:hidden}
 .research-body{padding:0.25rem 0}
 
 @media (max-width:680px){
+  /* Header/nav adjustments */
+  .site-header{padding:0.5rem}
+  .main-nav a{padding:0.32rem 0.6rem;font-size:0.95rem}
+
+  /* Hero: make profile photo smaller and center it */
+  .hero{margin:2rem auto 1rem auto;padding:1rem;border-radius:12px}
+  .hero .profile-photo{width:110px;height:110px;display:block;margin:0 auto 0.75rem}
+
+  /* Research: stack rows and let images scale to available width */
   .research-content{flex-direction:column}
-  .research-row{grid-template-columns:1fr;}
-  .research-media img{height:auto;border-width:4px;max-width:100%}
+  .research-row{grid-template-columns:1fr !important;gap:0.75rem}
+  .research-row.reverse > .research-media,
+  .research-row > .research-media{grid-column:auto}
+  .research-media img{height:auto;border-width:4px;max-width:100%;max-height:none}
+
+  /* Gallery and buttons scale down */
+  .art-gallery{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+  .button-container a{display:inline-block;padding:0.45rem 0.7rem}
 }
 
-@media (max-width:560px){
-  .intro{flex-direction:column;text-align:center}
-  .profile-photo{width:120px;height:120px}
-  .site-header{justify-content:flex-end;padding:0.5rem}
+@media (max-width:420px){
+  .profile-photo{width:96px;height:96px}
+  .main-nav a{padding:0.3rem 0.45rem;font-size:0.9rem}
+  .hero h1{font-size:1.25rem}
+  .research-media.small img{max-width:220px}
+  .research-media.medium img{max-width:300px}
 }
 
 /* Utility */
