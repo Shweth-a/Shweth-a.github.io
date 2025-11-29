@@ -158,11 +158,14 @@ body.lightbox-open{overflow:hidden}
   .hero{margin:2rem auto 1rem auto;padding:1rem;border-radius:12px}
   .hero .profile-photo{width:110px;height:110px;display:block;margin:0 auto 0.75rem}
 
-  /* Research: stack rows and let images scale to available width */
+  /* Research: stack rows vertically and enforce media-first ordering
+     For normal rows the DOM is media then body -> column shows media then body
+     For reversed rows the DOM is body then media -> column-reverse shows media then body */
   .research-content{flex-direction:column}
-  .research-row{grid-template-columns:1fr !important;gap:0.75rem}
-  .research-row.reverse > .research-media,
-  .research-row > .research-media{grid-column:auto}
+  .research-row{display:flex !important;flex-direction:column;gap:0.75rem}
+  .research-row.reverse{flex-direction:column-reverse}
+  .research-row > .research-media,
+  .research-row > .research-body{width:100%;min-width:0}
   .research-media img{height:auto;border-width:4px;max-width:100%;max-height:none}
 
   /* Gallery and buttons scale down */
