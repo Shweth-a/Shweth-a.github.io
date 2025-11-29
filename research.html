@@ -3,11 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Shwetha Prakash — Research</title>
+  <title>Research — Shwetha Prakash</title>
   <link rel="stylesheet" href="styles.css">
-  <style>/* small page-specific tweaks */
-    .container{padding-top:2rem}
-  </style>
+  <link rel="stylesheet" href="research.css">
 </head>
 <body>
   <header class="site-header">
@@ -19,24 +17,79 @@
     </nav>
   </header>
 
-  <main class="container">
-    <section class="section-box">
+  <main class="container" id="main">
+    <header class="hero" style="text-align:left">
       <h2>Research</h2>
+      <p class="subtitle">Instrumentation, Software, and Data Analysis for Cosmology</p>
+    </header>
 
-      <div class="project">
-        <h3>TIME Data Pipeline</h3>
-        <p>Worked on calibration and processing of TIME’s observational data, including timestream handling, instrument response characterization, and quality checks.</p>
-      </div>
+    <section id="overview" class="section-box reveal">
+      <h3>Overview</h3>
+      <p>I work on experimental cosmology with a focus on detector instrumentation, cryogenic systems, and data analysis for millimeter-wave telescopes. My research spans the full pipeline—from hardware characterization to software development and end-to-end data processing.</p>
+    </section>
 
-      <div class="project">
-        <h3>KID Simulations</h3>
-        <p>Current project involving detector simulations for kinetic inductance detectors (KIDs). Focus on modeling noise, resonator behavior, and performance evaluation.</p>
+    <section id="instruments" class="section-box reveal">
+      <h3>Experimental Instruments</h3>
+
+      <div class="instrument-cards">
+        <article class="instrument-card">
+          <h4>TIME</h4>
+          <p>The Tomographic Ionized-carbon Mapping Experiment (TIME) is a spectroscopic survey instrument designed to observe large-scale structure and the epoch of reionization using [C II] line emission. I contribute to calibration, detector characterization, and data-processing pipeline development.</p>
+        </article>
+
+        <article class="instrument-card">
+          <h4>CCAT</h4>
+          <p>The CCAT-prime telescope is a large-aperture submillimeter observatory designed for cosmic microwave background and line-intensity mapping science. I work on software, instrumentation integration, and analysis tools for observations using Transition-Edge Sensors (TES).</p>
+        </article>
       </div>
     </section>
+
+    <section id="detectors" class="section-box reveal">
+      <h3>Detector Technologies</h3>
+
+      <div class="detector-grid">
+        <div class="detector-card">
+          <h4>TES</h4>
+          <p>Transition-Edge Sensors are cryogenic bolometric detectors that operate at superconducting transition temperatures. I work with TES arrays for CCAT-prime, focusing on characterization, noise analysis, and calibration workflows.</p>
+        </div>
+
+        <div class="detector-card">
+          <h4>mKIDs</h4>
+          <p>Microwave Kinetic Inductance Detectors are resonator-based superconducting detectors used in TIME. I work on mKID detector analysis, noise modeling, and the implementation of calibration techniques for large-format arrays.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="software" class="section-box reveal">
+      <h3>Software &amp; Data Analysis</h3>
+      <ul>
+        <li>Building and maintaining data-processing pipelines for TIME (including calibration, timestream processing, and quality flags).</li>
+        <li>Developing simulation tools and analysis code for TES and mKID detectors.</li>
+        <li>Creating software for detector characterization, noise analysis, and observing-mode optimization.</li>
+        <li>Establishing reproducible workflows and modular tools for cosmology data analysis.</li>
+      </ul>
+    </section>
+
+    <p style="margin-top:1rem"><a href="index.html">← Back to home</a></p>
   </main>
 
-  <footer class="site-footer">
-    © 2025 Shwetha Prakash – Built with HTML & CSS
+  <div class="contact-strip" aria-label="Contact links">
+    <a href="mailto:sp2358@cornell.edu" title="Email" aria-label="Email">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 5.5v13A2.5 2.5 0 0 0 5.5 21h13a2.5 2.5 0 0 0 2.5-2.5v-13A2.5 2.5 0 0 0 18.5 3h-13A2.5 2.5 0 0 0 3 5.5z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 7.5l-9 6-9-6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <a href="https://github.com/Shweth-a" title="GitHub" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2C7.58 2 4 5.58 4 10c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.28 2-.28.68 0 1.36.1 2 .28 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38C17.71 16.53 20 13.54 20 10c0-4.42-3.58-8-8-8z" stroke="currentColor" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/in/shwethaprakash13" title="LinkedIn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.2"/><path d="M8 11v6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 9.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.5 11v6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 11v3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 8.5a1 1 0 0 0-1-1 1 1 0 0 0-1 1v0" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+
+  <footer id="site-footer" class="site-footer">
+    © 2025 Shwetha Prakash – Built with HTML &amp; CSS
   </footer>
+
+  <script src="site.js" defer></script>
+  <script src="research.js" defer></script>
 </body>
 </html>

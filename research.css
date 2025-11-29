@@ -1,0 +1,41 @@
+/* research.css — page-specific styles and subtle reveal animations */
+:root{
+  /* inherit color variables from main stylesheet; no overrides here by default */
+}
+
+/* Page layout */
+main.container{max-width:900px;margin:2.5rem auto;padding:0 1rem}
+.hero{background:var(--card-bg);padding:1.5rem;margin-bottom:0;border-radius:12px}
+.hero h2{margin:0 0 0.25rem 0;font-size:1.6rem;text-align:center}
+.subtitle{margin:0;color:var(--text);opacity:0.9;text-align:center}
+
+.section-box{padding:1.25rem 1.25rem;margin:1.25rem 0;border-radius:12px;background:var(--card-bg);box-shadow:0 8px 20px rgba(0,0,0,0.04)}
+.section-box h3{margin-top:0;text-align:center}
+
+/* Instrument cards */
+.instrument-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:0.75rem}
+.instrument-card{background:transparent;padding:0.9rem;border-radius:12px;border:1px solid var(--card-bg)}
+.instrument-card h4{margin:0 0 0.5rem 0}
+
+.detector-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.detector-card{background:transparent;padding:0.9rem;border-radius:12px;border:1px solid var(--card-bg)}
+
+/* List style */
+ul{margin:0.5rem 0 0 1.05rem}
+
+/* Reveal animation (subtle fade + upward motion) */
+.reveal{opacity:0;transform:translateY(10px);transition:opacity 520ms cubic-bezier(.2,.9,.2,1),transform 520ms cubic-bezier(.2,.9,.2,1)}
+.reveal.in-view{opacity:1;transform:none}
+
+/* Small responsive tweaks */
+@media (max-width:680px){
+  .instrument-cards{grid-template-columns:1fr}
+  .detector-grid{grid-template-columns:1fr}
+  main.container{padding:0 0.8rem}
+  .section-box{padding:1rem}
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion:reduce){
+  .reveal{transition:none;transform:none;opacity:1}
+}

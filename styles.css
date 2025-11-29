@@ -6,6 +6,8 @@
   /* Research image size defaults (can be overridden per-entry) */
   --research-img-max-width: 360px;
   --research-img-max-height: 320px;
+  /* explicit frame border color (teal) */
+  --frame-border: #0f9d9a;
 }
 *{box-sizing:border-box}
 html,body{height:100%}
@@ -17,16 +19,25 @@ html,body{height:100%}
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
 }
+
+/* Page transition and toolbar-safe spacing */
+body{transition:opacity 360ms ease; padding-top:64px}
+.page-exit{opacity:0}
 .site-header{
-  position:sticky;
+  position:fixed;
   top:0;
-  z-index:40;
+  left:0;
+  right:0;
+  height:56px;
+  z-index:80;
   display:flex;
   justify-content:flex-end;
   align-items:center;
   gap:1rem;
-  padding:0.75rem 1rem;
-  background:transparent;
+  padding:0.6rem 1rem;
+  /* a few shades darker than the page background */
+  background: rgba(148,183,183,0.85); /* derived from --bg (#b9e5e5) */
+  backdrop-filter: blur(6px);
 }
 .site-header h1{margin:0;font-size:1rem}
 .main-nav a{
@@ -93,6 +104,7 @@ html,body{height:100%}
   color:var(--text);
   text-decoration:none;
   box-shadow:0 6px 14px rgba(0,0,0,0.045);
+  transition:transform 240ms ease, box-shadow 240ms ease;
 }
 .profile-photo{width:140px;height:140px;border-radius:50%;object-fit:cover;border:3px solid rgba(8,48,58,0.06);background:var(--muted)}
 .intro-text h2{margin:0 0 0.5rem 0}
@@ -102,13 +114,16 @@ html,body{height:100%}
 /* Art gallery */
 .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin-top:1rem}
 .art-card{background:var(--card-bg);padding:0.5rem;border-radius:8px;display:flex;flex-direction:column;align-items:center}
-.art-card img{width:100%;height:160px;object-fit:cover;border-radius:6px}
+.art-card img{width:100%;height:160px;object-fit:cover;border-radius:12px}
 .art-card p{margin:0.5rem 0 0 0;font-size:0.95rem;color:var(--text)}
 
 /* Framed gallery styles */
 .art-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin-top:1rem;align-items:start}
-.art-frame{background:#b9e5e5;border-radius:10px;padding:0.6rem;display:flex;flex-direction:column;align-items:center;box-shadow:0 8px 18px rgba(0,0,0,0.04);}
-.art-frame img{width:100%;height:220px;object-fit:cover;border-radius:6px;border:6px solid var(--card-bg);background:var(--white)}
+.art-frame{background:transparent;border-radius:10px;padding:0;display:flex;flex-direction:column;align-items:center;box-shadow:0 8px 18px rgba(0,0,0,0.04);} 
+.art-frame img{width:100%;height:220px;object-fit:cover;border-radius:12px;border:6px solid var(--bg);background:var(--white)}
+
+/* ensure any gallery images have rounded corners */
+.art-gallery img, .gallery img{border-radius:12px}
 .art-meta{margin-top:0.6rem;font-size:0.85rem;color:var(--text);opacity:0.75}
 
 /* separate the art intro box from the main heading */
@@ -137,8 +152,8 @@ body.lightbox-open{overflow:hidden}
 .research-row.reverse > .research-body{grid-column:1}
 .research-row > .research-body,
 .research-row > .research-media{min-width:0}
-.research-media{display:flex;align-items:center;justify-content:center}
-.research-media img{display:block;width:100%;max-width:var(--research-img-max-width);max-height:var(--research-img-max-height);height:auto;object-fit:cover;border-radius:8px;flex:0 0 auto;border:6px solid var(--card-bg);background:var(--white)}
+.research-media{display:flex;align-items:center;justify-content:center;background:transparent;padding:0;border-radius:10px}
+.research-media img{display:block;width:100%;max-width:var(--research-img-max-width);max-height:var(--research-img-max-height);height:auto;object-fit:cover;border-radius:12px;flex:0 0 auto;border:6px solid var(--bg);background:var(--white)}
 .research-media.small img{max-width:260px}
 .research-media.medium img{max-width:360px}
 .research-media.large img{max-width:520px}
@@ -148,6 +163,24 @@ body.lightbox-open{overflow:hidden}
   max-height: calc(var(--research-img-max-height) - 5mm);
 }
 .research-body{padding:0.25rem 0}
+
+/* Subtle hover/interaction animations */
+.instrument-card, .detector-card, .art-frame{transition:transform 260ms cubic-bezier(.2,.9,.2,1), box-shadow 260ms ease}
+.instrument-card:hover, .detector-card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(8,48,58,0.08)}
+.art-frame:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,0.08)}
+.main-nav a{transition:background 220ms ease, transform 200ms ease}
+.main-nav a:hover{transform:translateY(-2px)}
+.button-container a:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(0,0,0,0.06)}
+
+/* Contact strip in footer */
+.contact-strip{display:flex;gap:1rem;justify-content:center;align-items:center;padding:0.6rem;background:var(--card-bg);border-top:1px solid rgba(0,0,0,0.03)}
+.contact-strip a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;background:transparent;color:var(--text);text-decoration:none;border:1px solid transparent;transition:background 180ms ease, transform 180ms ease}
+.contact-strip a:hover{background:rgba(255,255,255,0.06);transform:translateY(-3px)}
+.contact-strip svg{width:20px;height:20px;display:block}
+
+@media (prefers-reduced-motion:reduce){
+  .instrument-card, .detector-card, .art-frame, .main-nav a, .button-container a{transition:none;transform:none}
+}
 
 @media (max-width:680px){
   /* Header/nav adjustments */
