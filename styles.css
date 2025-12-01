@@ -35,8 +35,9 @@ body{transition:opacity 360ms ease; padding-top:64px}
   align-items:center;
   gap:1rem;
   padding:0.6rem 1rem;
-  /* a few shades darker than the page background */
-  background: rgba(148,183,183,0.85); /* derived from --bg (#b9e5e5) */
+  /* same color as the page background but 60% opaque; fallback then modern color-mix */
+  background: rgba(185,229,229,0.6); /* fallback for browsers without color-mix */
+  background: color-mix(in srgb, var(--bg) 60%, transparent);
   backdrop-filter: blur(6px);
 }
 .site-header h1{margin:0;font-size:1rem}
