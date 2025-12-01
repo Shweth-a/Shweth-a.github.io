@@ -13,11 +13,13 @@
 html,body{height:100%}
 .body, body{
   margin:0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, system-ui;
   background:var(--bg);
   color:var(--text);
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
+  font-size:16px; /* base size */
+  line-height:1.6;
 }
 
 /* Page transition and toolbar-safe spacing */
@@ -59,16 +61,50 @@ body{transition:opacity 360ms ease; padding-top:64px}
 .container{max-width:900px;margin:2.5rem auto;padding:0 1rem}
 .hero{
   max-width:900px;
-  margin:3.5rem auto 1.5rem auto;
-  padding:2rem 1rem;
+  /* restored to a tighter spacing similar to the previous layout */
+  margin:1.5rem auto 1rem auto;
+  padding:1rem 1rem;
   border-radius:14px;
   background: var(--card-bg);
   box-shadow:0 6px 18px rgba(8,48,58,0.05);
   text-align:center;
 }
 
+/* global image handling */
+img{max-width:100%;height:auto;display:block}
+
+/* ensure homepage profile photo centers always */
+.hero .profile-photo{display:block;margin:0 auto}
+
+/* typographic scale */
+h1{font-size:1.9rem;margin:0 0 0.4rem 0}
+h2{font-size:1.45rem;margin:0 0 0.6rem 0}
+h3{font-size:1.15rem;margin:0 0 0.5rem 0}
+
+/* slightly more breathing room for sections */
+.section-box,
+.hero,
+.art-gallery,
+.gallery{margin-bottom:1.5rem}
+
+/* small subnav buttons on the research page */
+.subnav a{display:inline-block;padding:0.28rem 0.5rem;border-radius:8px;background:var(--bg);color:var(--text);text-decoration:none;font-size:0.95rem}
+.subnav{font-size:0.95rem}
+
+/* art frame placeholder uses card-bg so empty areas match cards */
+.art-frame{background:var(--card-bg)}
+.art-frame img{background:transparent}
+
+/* responsive nav: wrap and stack on small screens */
+.main-nav{display:flex;gap:0.5rem;align-items:center}
+@media (max-width:520px){
+  .site-header{justify-content:space-between;padding:0.5rem}
+  .main-nav{flex-direction:column;align-items:flex-end;gap:0.4rem}
+  .main-nav a{padding:0.4rem 0.6rem}
+}
+
 /* Add extra space under the hero heading and more bottom padding for the intro box */
-.hero h2{margin-bottom:1.5rem}
+.hero h2{margin-bottom:1rem}
 
 /* page-specific: add space above the Art page heading only */
 .art-page .hero{
@@ -120,12 +156,13 @@ body{transition:opacity 360ms ease; padding-top:64px}
 
 /* Framed gallery styles */
 .art-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin-top:1rem;align-items:start}
-.art-frame{background:transparent;border-radius:10px;padding:0;display:flex;flex-direction:column;align-items:center;box-shadow:0 8px 18px rgba(0,0,0,0.04);} 
-.art-frame img{width:100%;height:220px;object-fit:cover;border-radius:12px;border:6px solid var(--bg);background:var(--white)}
+.art-frame{background:var(--card-bg);border-radius:10px;padding:0;display:flex;flex-direction:column;align-items:center;overflow:hidden} 
+.art-frame img{width:100%;height:220px;object-fit:cover;border-radius:12px;border:6px solid var(--bg);background:transparent;display:block}
+.art-frame .art-meta{background:var(--card-bg);width:100%;padding:0.5rem 0;margin-top:0;text-align:center}
 
 /* ensure any gallery images have rounded corners */
 .art-gallery img, .gallery img{border-radius:12px}
-.art-meta{margin-top:0.6rem;font-size:0.85rem;color:var(--text);opacity:0.75}
+.art-meta{margin-top:0.6rem;font-size:0.85rem;color:rgba(43,43,43,0.85)}
 
 /* separate the art intro box from the main heading */
 /* .art-intro removed: intro box deleted from art page */

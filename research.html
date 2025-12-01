@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Research: instrumentation, detectors, and data analysis for millimeter-wave cosmology experiments (TIME, CCAT)." />
   <title>Research — Shwetha Prakash</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="research.css">
@@ -21,6 +22,9 @@
     <header class="hero" style="text-align:left">
       <h2>Research</h2>
       <p class="subtitle">Instrumentation, Software, and Data Analysis for Cosmology</p>
+      <nav class="subnav" aria-label="Research quick links" style="margin-top:0.6rem;text-align:center">
+        <a href="#time">TIME</a> <a href="#ccat">CCAT</a>
+      </nav>
     </header>
 
     <section id="overview" class="section-box reveal">
@@ -33,13 +37,13 @@
 
       <div class="instrument-cards">
         <article class="instrument-card">
-          <h4>TIME</h4>
-          <p>The Tomographic Ionized-carbon Mapping Experiment (TIME) is a spectroscopic survey instrument designed to observe large-scale structure and the epoch of reionization using [C II] line emission. I contribute to calibration, detector characterization, and data-processing pipeline development.</p>
+          <h4 id="time">TIME</h4>
+          <p>The Tomographic Ionized-carbon Mapping Experiment (TIME) is a spectroscopic survey instrument designed to observe large-scale structure and the epoch of reionization using [CII] line emission. I contribute to calibration, detector characterization, and data-processing pipeline development.</p>
         </article>
 
         <article class="instrument-card">
-          <h4>CCAT</h4>
-          <p>The CCAT-prime telescope is a large-aperture submillimeter observatory designed for cosmic microwave background and line-intensity mapping science. I work on software, instrumentation integration, and analysis tools for observations using Transition-Edge Sensors (TES).</p>
+          <h4 id="ccat">CCAT</h4>
+          <p>The CCAT-prime telescope is a large-aperture submillimeter observatory designed for cosmic microwave background and line-intensity mapping science. I work on software, instrumentation integration, and analysis tools for observations using microwave detectors (mKIDs).</p>
         </article>
       </div>
     </section>
@@ -50,12 +54,12 @@
       <div class="detector-grid">
         <div class="detector-card">
           <h4>TES</h4>
-          <p>Transition-Edge Sensors are cryogenic bolometric detectors that operate at superconducting transition temperatures. I work with TES arrays for CCAT-prime, focusing on characterization, noise analysis, and calibration workflows.</p>
+          <p>Transition-Edge Sensors are cryogenic bolometric detectors that operate at superconducting transition temperatures. I work with TES arrays for TIME, focusing on characterization and noise analysis using SQUIDS.</p>
         </div>
 
         <div class="detector-card">
           <h4>mKIDs</h4>
-          <p>Microwave Kinetic Inductance Detectors are resonator-based superconducting detectors used in TIME. I work on mKID detector analysis, noise modeling, and the implementation of calibration techniques for large-format arrays.</p>
+          <p>Microwave Kinetic Inductance Detectors are resonator-based superconducting detectors used in CCAT's PrimeCam module. I work on mKID detector analysis and characterisation for large-format arrays.</p>
         </div>
       </div>
     </section>
@@ -63,10 +67,9 @@
     <section id="software" class="section-box reveal">
       <h3>Software &amp; Data Analysis</h3>
       <ul>
-        <li>Building and maintaining data-processing pipelines for TIME (including calibration, timestream processing, and quality flags).</li>
+        <li>Building and maintaining a data-processing pipeline for TIME that does calibration, timestream processing, and generates quality flags.</li>
         <li>Developing simulation tools and analysis code for TES and mKID detectors.</li>
         <li>Creating software for detector characterization, noise analysis, and observing-mode optimization.</li>
-        <li>Establishing reproducible workflows and modular tools for cosmology data analysis.</li>
       </ul>
     </section>
 
