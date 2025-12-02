@@ -99,8 +99,9 @@ h3{font-size:1.15rem;margin:0 0 0.5rem 0}
 .main-nav{display:flex;gap:0.5rem;align-items:center}
 @media (max-width:520px){
   .site-header{justify-content:space-between;padding:0.5rem}
-  .main-nav{flex-direction:column;align-items:flex-end;gap:0.4rem}
-  .main-nav a{padding:0.4rem 0.6rem}
+  /* Keep navigation horizontal on mobile; allow wrapping if it overflows */
+  .main-nav{flex-direction:row;flex-wrap:wrap;align-items:center;gap:0.4rem}
+  .main-nav a{padding:0.36rem 0.6rem}
 }
 
 /* Add extra space under the hero heading and more bottom padding for the intro box */
