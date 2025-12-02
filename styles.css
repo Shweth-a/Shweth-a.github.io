@@ -96,7 +96,8 @@ h3{font-size:1.15rem;margin:0 0 0.5rem 0}
 .art-frame img{background:transparent}
 
 /* responsive nav: wrap and stack on small screens */
-.main-nav{display:flex;gap:0.5rem;align-items:center}
+.main-nav{display:flex;gap:0.5rem;align-items:center;flex-direction:row;flex-wrap:wrap}
+.main-nav a{display:inline-flex;align-items:center;justify-content:center}
 @media (max-width:520px){
   .site-header{justify-content:space-between;padding:0.5rem}
   /* Keep navigation horizontal on mobile; allow wrapping if it overflows */
@@ -240,8 +241,8 @@ body.lightbox-open{overflow:hidden}
   .research-row > .research-body{width:100%;min-width:0}
   .research-media img{height:auto;border-width:4px;max-width:100%;max-height:none}
 
-  /* Gallery and buttons scale down */
-  .art-gallery{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+  /* Gallery and buttons scale down: keep two items per row with good spacing */
+  .art-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:0.9rem}
   .button-container a{display:inline-block;padding:0.45rem 0.7rem}
 }
 
