@@ -6,10 +6,12 @@
     <title>CV — Shwetha Prakash</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+      /* ensure the viewer page uses the site background color */
+      html,body{height:100%;background:var(--bg);color:var(--text)}
       .cv-toolbar{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0.75rem 1rem;background:color-mix(in srgb, var(--bg) 60%, transparent);backdrop-filter:blur(6px)}
       .cv-actions{display:flex;gap:0.5rem}
       .cv-actions a{background:var(--card-bg);padding:0.45rem 0.8rem;border-radius:8px;text-decoration:none;color:var(--text)}
-      .cv-iframe{width:100%;height:calc(100vh - 72px);border:0}
+      .cv-iframe{width:100%;height:calc(100vh - 72px);border:0;background:transparent}
       .cv-fallback{padding:1rem;text-align:center}
     </style>
   </head>
