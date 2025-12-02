@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CV — Shwetha Prakash</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      .cv-toolbar{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0.75rem 1rem;background:color-mix(in srgb, var(--bg) 60%, transparent);backdrop-filter:blur(6px)}
+      .cv-actions{display:flex;gap:0.5rem}
+      .cv-actions a{background:var(--card-bg);padding:0.45rem 0.8rem;border-radius:8px;text-decoration:none;color:var(--text)}
+      .cv-iframe{width:100%;height:calc(100vh - 72px);border:0}
+      .cv-fallback{padding:1rem;text-align:center}
+    </style>
+  </head>
+  <body>
+    <header class="cv-toolbar">
+      <div class="cv-title">
+        <strong>Curriculum Vitae</strong>
+      </div>
+      <nav class="cv-actions">
+        <a href="index.html">← Back to home</a>
+        <a href="cv.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+        <a href="cv.pdf" download>Download</a>
+      </nav>
+    </header>
+
+    <main>
+      <iframe class="cv-iframe" src="cv.pdf" title="Shwetha Prakash CV">Your browser does not support embedded PDFs. You can <a href="cv.pdf">download the CV here</a>.</iframe>
+      <div class="cv-fallback">
+        If the PDF does not display, <a href="cv.pdf">click here to open it</a>.
+      </div>
+    </main>
+  </body>
+</html>
