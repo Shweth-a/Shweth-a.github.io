@@ -1,13 +1,18 @@
 :root{
-  --bg: #b9e5e5; 
-  --white: #ffffff;
-  --text: #2B2B2B; 
-  --card-bg: #9eafda; 
+  --bg: #b9e5e5; /* Light teal background */
+  --white: #ffffff; /* Pure white for nav */
+  --black: #000000; /* Black for accents */
+  --grey: #cccccc; /* Light grey for secondary text */
+  --light-grey: #f5f5f5; /* Light grey for subtle backgrounds */
+  --dark-grey: #333333; /* Dark grey for accents */
+  --card-bg: #93a2c4b4; /* Translucent for cards */
+  --accent-purple: #9eafda; /* Light purple */
+  --accent-teal: #b9e5e5; /* Light teal, matching bg */
+  --frame-border: #014f50; /* dark teal */
+  --title-color: #34135a; /* New color for specified titles */
   /* Research image size defaults (can be overridden per-entry) */
   --research-img-max-width: 360px;
   --research-img-max-height: 320px;
-  /* explicit frame border color (teal) */
-  --frame-border: #0f9d9a;
 }
 *{box-sizing:border-box}
 html,body{height:100%}
@@ -15,11 +20,12 @@ html,body{height:100%}
   margin:0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, system-ui;
   background:var(--bg);
-  color:var(--text);
+  color:var(--dark-grey);
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   font-size:16px; /* base size */
   line-height:1.6;
+  border-bottom: none;
 }
 
 /* Page transition and toolbar-safe spacing */
@@ -33,7 +39,7 @@ body{transition:opacity 360ms ease; padding-top:64px}
   height:56px;
   z-index:80;
   display:flex;
-  justify-content:flex-end;
+  justify-content:center;
   align-items:center;
   gap:1rem;
   padding:0.6rem 1rem;
@@ -42,21 +48,22 @@ body{transition:opacity 360ms ease; padding-top:64px}
   background: color-mix(in srgb, var(--bg) 60%, transparent);
   backdrop-filter: blur(6px);
 }
-.site-header h1{margin:0;font-size:1rem}
+.site-header h1{margin:0;font-size:1rem;color: var(--title-color)}
 .main-nav a{
-  color:var(--text);
+  color:var(--black);
   text-decoration:none;
   margin-left:0.6rem;
   padding:0.45rem 0.85rem;
   border-radius:999px;
-  background:var(--card-bg);
-  box-shadow:0 1px 4px rgba(8,48,58,0.06);
+  background: rgba(158,175,218,0.2);
+  box-shadow:0 1px 4px rgba(0,0,0,0.1);
+  border: 1px solid var(--title-color);
 }
 .main-nav a[aria-current="page"]{
   font-weight:700;
-  background: var(--card-bg);
-  color: var(--text);
-  box-shadow:0 4px 12px rgba(0,0,0,0.06);
+  background: var(--accent-purple);
+  color: var(--dark-grey);
+  box-shadow:0 4px 12px rgba(0,0,0,0.15);
 }
 .container{max-width:900px;margin:2.5rem auto;padding:0 1rem}
 .hero{
@@ -66,7 +73,8 @@ body{transition:opacity 360ms ease; padding-top:64px}
   padding:1rem 1rem;
   border-radius:14px;
   background: var(--card-bg);
-  box-shadow:0 6px 18px rgba(8,48,58,0.05);
+  box-shadow:0 6px 18px rgba(0,0,0,0.1);
+  border: 1px solid var(--title-color);
   text-align:center;
 }
 
@@ -78,8 +86,9 @@ img{max-width:100%;height:auto;display:block}
 
 /* typographic scale */
 h1{font-size:1.9rem;margin:0 0 0.4rem 0}
-h2{font-size:1.45rem;margin:0 0 0.6rem 0}
-h3{font-size:1.15rem;margin:0 0 0.5rem 0}
+.hero h1{color: var(--title-color)}
+h2{font-size:1.45rem;margin:0 0 0.6rem 0;color: var(--title-color)}
+h3{font-size:1.15rem;margin:0 0 0.5rem 0;color: var(--title-color)}
 
 /* slightly more breathing room for sections */
 .section-box,
@@ -88,7 +97,8 @@ h3{font-size:1.15rem;margin:0 0 0.5rem 0}
 .gallery{margin-bottom:1.5rem}
 
 /* small subnav buttons on the research page */
-.subnav a{display:inline-block;padding:0.28rem 0.5rem;border-radius:8px;background:var(--bg);color:var(--text);text-decoration:none;font-size:0.95rem}
+.subnav a{display:inline-block;padding:0.5rem 1rem;border-radius:8px;background: var(--accent-teal);color: var(--black);text-decoration:none;font-size:0.95rem;border: none;transition:transform 200ms ease, box-shadow 200ms ease}
+.subnav a:hover{transform:translateY(-2px);box-shadow:0 6px 14px rgba(0,0,0,0.15); background: var(--frame-border); color: var(--white)}
 .subnav{font-size:0.95rem}
 
 /* art frame placeholder uses card-bg so empty areas match cards */
@@ -121,16 +131,17 @@ h3{font-size:1.15rem;margin:0 0 0.5rem 0}
   padding:1.5rem 1.25rem;
   border-radius:12px;
   background:var(--card-bg);
-  color:var(--text);
-  box-shadow:0 8px 20px rgba(0,0,0,0.04);
+  color:var(--dark-grey);
+  box-shadow:0 8px 20px rgba(0,0,0,0.1);
+  border: 1px solid var(--title-color);
 }
 .section-box h2, #about h2, #research h2, #projects h2{
   margin-top:0;
-  color:var(--text);
-  text-align:center;
+  color: var(--title-color);
+  text-align:left;
 }
 .section-box p, #about p, #research p, #projects p{
-  color:var(--text);
+  color:var(--dark-grey);
   line-height:1.6;
 }
 .button-container{margin-top:1rem}
@@ -139,32 +150,37 @@ h3{font-size:1.15rem;margin:0 0 0.5rem 0}
   margin:0.35rem;
   padding:0.5rem 0.9rem;
   border-radius:8px;
-  background:var(--bg);
-  color:var(--text);
+  background: var(--accent-teal);
+  color: var(--black);
   text-decoration:none;
-  box-shadow:0 6px 14px rgba(0,0,0,0.045);
+  box-shadow:0 6px 14px rgba(0,0,0,0.1);
+  border: none;
   transition:transform 240ms ease, box-shadow 240ms ease;
 }
 .profile-photo{width:140px;height:140px;border-radius:50%;object-fit:cover;border:3px solid rgba(8,48,58,0.06);background:var(--muted)}
-.intro-text h2{margin:0 0 0.5rem 0}
-.intro-text p{margin:0;color:var(--text)}
-.site-footer{padding:1rem;text-align:center;opacity:0.9;color:rgba(8,48,58,0.7)}
+.intro-text h2{margin:0 0 0.5rem 0; color: var(--title-color)}
+.intro-text p{margin:0;color:var(--dark-grey)}
+.site-footer{padding:1rem;text-align:center;opacity:0.9;color:var(--dark-grey);border-bottom: none}
 
 /* Art gallery */
-.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin-top:1rem}
-.art-card{background:var(--card-bg);padding:0.5rem;border-radius:8px;display:flex;flex-direction:column;align-items:center}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1rem;margin-top:1rem}
+.art-card{background: var(--accent-teal);padding:0.5rem;border-radius:8px;display:flex;flex-direction:column;align-items:center;border:1px solid var(--frame-border);box-shadow:0 4px 12px rgba(0,0,0,0.1)}
 .art-card img{width:100%;height:160px;object-fit:cover;border-radius:12px}
-.art-card p{margin:0.5rem 0 0 0;font-size:0.95rem;color:var(--text)}
+.art-card p{margin:0.5rem 0 0 0;font-size:0.95rem;color:var(--dark-grey)}
+
+/* Recipe cards */
+.recipe-card{background: var(--accent-teal);padding:0.5rem;border-radius:8px;display:flex;flex-direction:column;align-items:center;border:1px solid var(--frame-border);box-shadow:0 4px 12px rgba(0,0,0,0.1)}
+.recipe-card img{width:100%;height:57px;object-fit:cover;object-position:top;border-radius:12px}
 
 /* Framed gallery styles */
 .art-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin-top:1rem;align-items:start}
-.art-frame{background:var(--card-bg);border-radius:10px;padding:0;display:flex;flex-direction:column;align-items:center;overflow:hidden} 
+.art-frame{background: var(--accent-teal);border-radius:10px;padding:0;display:flex;flex-direction:column;align-items:center;overflow:hidden;border:1px solid var(--frame-border);box-shadow:0 4px 12px rgba(0,0,0,0.1)}
 .art-frame img{width:100%;height:220px;object-fit:cover;border-radius:12px;border:6px solid var(--bg);background:transparent;display:block}
-.art-frame .art-meta{background:var(--card-bg);width:100%;padding:0.5rem 0;margin-top:0;text-align:center}
+.art-frame .art-meta{background: var(--accent-teal);width:100%;padding:0.5rem 0;margin-top:0;text-align:center}
 
 /* ensure any gallery images have rounded corners */
 .art-gallery img, .gallery img{border-radius:12px}
-.art-meta{margin-top:0.6rem;font-size:0.85rem;color:rgba(43,43,43,0.85)}
+.art-meta{margin-top:0.6rem;font-size:0.85rem;color: var(--dark-grey)}
 
 /* separate the art intro box from the main heading */
 /* .art-intro removed: intro box deleted from art page */
@@ -176,6 +192,8 @@ h3{font-size:1.15rem;margin:0 0 0.5rem 0}
 .lightbox-caption{color:var(--white);margin-top:0.75rem;text-align:center;opacity:0.95}
 .lightbox-close{position:absolute;right:1rem;top:1rem;background:transparent;border:none;color:var(--white);font-size:2.2rem;line-height:1;cursor:pointer}
 .lightbox-close:focus{outline:2px solid var(--white);outline-offset:4px}
+.lightbox-download{position:absolute;right:3rem;top:1rem;background:transparent;border:none;color:var(--white);font-size:2.2rem;line-height:1;cursor:pointer}
+.lightbox-download:focus{outline:2px solid var(--white);outline-offset:4px}
 
 /* prevent background scroll when lightbox open */
 body.lightbox-open{overflow:hidden}
@@ -206,16 +224,16 @@ body.lightbox-open{overflow:hidden}
 
 /* Subtle hover/interaction animations */
 .instrument-card, .detector-card, .art-frame{transition:transform 260ms cubic-bezier(.2,.9,.2,1), box-shadow 260ms ease}
-.instrument-card:hover, .detector-card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(8,48,58,0.08)}
-.art-frame:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,0.08)}
+.instrument-card:hover, .detector-card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,0.15)}
+.art-frame:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,0.15)}
 .main-nav a{transition:background 220ms ease, transform 200ms ease}
-.main-nav a:hover{transform:translateY(-2px)}
-.button-container a:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(0,0,0,0.06)}
+.main-nav a:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.15)}
+.button-container a:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(0,0,0,0.15); background: var(--frame-border); color: var(--white)}
 
 /* Contact strip in footer */
-.contact-strip{display:flex;gap:1rem;justify-content:center;align-items:center;padding:0.6rem;background:var(--card-bg);border-top:1px solid rgba(0,0,0,0.03)}
-.contact-strip a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;background:transparent;color:var(--text);text-decoration:none;border:1px solid transparent;transition:background 180ms ease, transform 180ms ease}
-.contact-strip a:hover{background:rgba(255,255,255,0.06);transform:translateY(-3px)}
+.contact-strip{display:flex;gap:1rem;justify-content:center;align-items:center;padding:0.6rem;background:var(--card-bg);border-top: none}
+.contact-strip a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;background:transparent;color:var(--dark-grey);text-decoration:none;border:1px solid var(--title-color);transition:background 180ms ease, transform 180ms ease}
+.contact-strip a:hover{background:var(--light-grey);transform:translateY(-3px)}
 .contact-strip svg{width:20px;height:20px;display:block}
 
 @media (prefers-reduced-motion:reduce){
